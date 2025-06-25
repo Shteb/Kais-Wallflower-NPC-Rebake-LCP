@@ -1,0 +1,31 @@
+name: LCP bundler
+
+on: 
+    release:
+        types: [published]
+
+permissions:
+    contents: write
+
+jobs:
+    bundle-wallflower-lcp:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 'Wallflower Rebakes'
+        steps:
+          - uses: actions/checkout@v4
+          - name: bump the lcp_manifest version
+            env:
+              MANIFEST_VERSION: ${{ github.event.release.tag_name }}
+            run: |
+              contents="$(jq --arg version "$MANIFEST_VERSION" '.version |= $version' lcp_manifest.json)"
+              echo -E "${contents}" > lcp_manifest.json
+          - name: zip up the LCP
+            run: |
+              zip -r "kais-wallflower-npc-rebakes-${{ github.event.release.tag_name }}.lcp" *.json
+          - name: upload LCP to release
+            env:
+              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            run: |
+              gh release upload --clobber ${{ github.event.release.tag_name }} *.lcp
