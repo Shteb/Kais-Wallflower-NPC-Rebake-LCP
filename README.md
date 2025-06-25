@@ -1,4 +1,4 @@
-# Kai's NPC Rebake LCP
+# Kai's Wallflower NPC Rebake LCP
 A project to LCP-ify the playtest versions of Kai's Wallflower NPC rebakes. For more info, please search the Pilot.net Discord for his pdfs.
 # Check releases for the lcp file.
 ### To compile the lcp manually:
