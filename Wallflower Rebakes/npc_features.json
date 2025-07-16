@@ -392,7 +392,7 @@
     },
     "locked": false,
     "type": "Tech",
-    "effect": "The Spite chooses a character within <strong>Sensors</strong> and infects them with a catalyzing virus. Characters infected by this virus take <strong>1 heat</strong> at the start of their turn, plus <strong>1 additional heat</strong> for each successive turn they remain infected beyond the first up to a maximum of <strong>3 heat</strong> per turn, and cannot clear <strong>heat</strong> by any means except for overheating. This effect lasts for the rest of the scene, until the Spite is destroyed, until the Spite uses this system on a different character, or until the infected character moves adjacent to (or begins their turn adjacent to) the Spite.",
+    "effect": "The Spite chooses a character within <strong>Sensors</strong> and infects them with a catalyzing virus. Characters infected by this virus take <strong>1 heat</strong> at the start of their turn and cannot clear <strong>heat</strong> by any means except for overheating. This effect lasts for the rest of the scene, until the Spite is destroyed, until the Spite uses this system on a different character, or until the infected character moves adjacent to (or begins their turn adjacent to) the Spite.",
     "tags": [
       {
         "id": "tg_full_tech"
@@ -543,7 +543,7 @@
     },
     "locked": false,
     "type": "Trait",
-    "effect": "The Strider has two kits consisting of unique weapons, systems, and traits, the <strong>Marksman Kit</strong> and <strong>Skirmisher Kit</strong>. Each kit comes with a special <strong>Kit Bonus</strong> that activates at the start of their turn, as well as a <strong>Swap Bonus</strong> that only activates when they use this trait to swap to that kit; if the Strider chooses to gain the <strong>Kit Bonus</strong>, then they can't activate this trait (and thus gain the <strong>Swap Bonus</strong>) until the start of their next turn. When one of the Strider's weapons or systems are destroyed, it must be chosen from their active kit.<p><strong>Marksman Kit Swap Bonus</strong>: This turn only, the <strong>Ranger Long Rifle</strong> ignores the <strong>Ordnance</strong> tag.</p><p><strong>Skirmisher Kit Swap Bonus</strong>: The Strider makes an attack against a character of their choice within <strong>Range 5</strong> using the <strong>Explosive Carbine</strong> as a <strong>free action</strong>.</p>",
+    "effect": "<p>The Strider has two kits consisting of unique weapons, systems, and traits, the <strong>Marksman Kit</strong> and <strong>Skirmisher Kit</strong>. Each kit comes with a special <strong>Kit Bonus</strong> that activates at the start of their turn, as well as a <strong>Swap Bonus</strong> that only activates when they use this trait to swap to that kit; if the Strider chooses to gain the <strong>Kit Bonus</strong>, then they can't activate this trait (and thus gain the <strong>Swap Bonus</strong>) until the start of their next turn. When one of the Strider's weapons or systems are destroyed, it must be chosen from their active kit.</p><p>The Strider may choose either kit to begin combat in.</p>",
     "tags": [
       {
         "id": "tg_quick_action"
@@ -551,8 +551,8 @@
     ]
   },
   {
-    "id": "nrfaw-npc-rebake_npcf_kit_bonus_strider",
-    "name": "Kit Bonus",
+    "id": "nrfaw-npc-rebake_npcf_marksman_kit_strider",
+    "name": "Marksman Kit",
     "origin": {
       "type": "Class",
       "name": "STRIDER",
@@ -560,7 +560,24 @@
     },
     "locked": false,
     "type": "Trait",
-    "effect": "<p><strong>Marksman Kit Bonus</strong>: As a <strong>protocol</strong>, the Strider may <strong>Lock On</strong> to a hostile character within <strong>Sensors</strong> and line of sight.</p><p><strong>Skirmisher Kit Bonus</strong>: As a <strong>protocol</strong>, the Strider may move <strong>2 spaces</strong>. This movement ignores engagement and doesn't provoke <strong>reactions</strong>.</p>",
+    "effect": "<p> The <strong>Marksman Kit</strong> is composed of: <ul> <li><strong>Ranger Long Rifle</strong></li> <li><strong>Flash Grenade</strong></li> <li><strong>Adaptive Camouflage</strong></li> </ul> </p><p><strong>Marksman Kit Bonus</strong>: As a <strong>protocol</strong>, the Strider may <strong>Lock On</strong> to a hostile character within <strong>Sensors</strong> and line of sight.</p><p><strong>Marksman Kit Swap Bonus</strong>: This turn only, the <strong>Ranger Long Rifle</strong> ignores the <strong>Ordnance</strong> tag.</p>",
+    "tags": [
+      {
+        "id": "tg_protocol"
+      }
+    ]
+  },
+  {
+    "id": "nrfaw-npc-rebake_npcf_skirmisher_kit_strider",
+    "name": "Skirmisher Kit",
+    "origin": {
+      "type": "Class",
+      "name": "STRIDER",
+      "base": true
+    },
+    "locked": false,
+    "type": "Trait",
+    "effect": "<p> The <strong>Skirmisher Kit</strong> is composed of: <ul> <li><strong>Explosive Carbine</strong></li> <li><strong>Reposition</strong></li> <li><strong>Smoke Grenade</strong></li> </ul> </p> <p> <strong>Skirmisher Kit Bonus</strong>: As a <strong>protocol</strong>, the Strider may move <strong>2 spaces</strong>. This movement ignores engagement and doesn't provoke <strong>reactions</strong>. </p> <p> <strong>Skirmisher Kit Swap Bonus</strong>: The Strider makes an attack against a character of their choice within <strong>Range 5</strong> using the <strong>Explosive Carbine</strong> as a <strong>free action</strong>. </p>",
     "tags": [
       {
         "id": "tg_protocol"
@@ -585,9 +602,9 @@
     ],
     "weapon_type": "Heavy Rifle",
     "attack_bonus": [
-      0,
       1,
-      2
+      2,
+      3
     ],
     "accuracy": [
       0,
@@ -854,7 +871,7 @@
     },
     "locked": false,
     "type": "Trait",
-    "effect": "Before combat begins, the Avenger chooses an allied <strong>non-Grunt, non-Drone</strong> character; the Avenger and the chosen character are <strong>bondmates</strong>. During the Avenger's turn, as a <strong>protocol</strong> they may move their <strong>Speed</strong> towards their bondmate, or their bondmate may move their <strong>Speed</strong> towards them, as directly as possible. When the Avenger's bondmate is destroyed while within <strong>Range 5</strong> of the Avenger, they instead survive with <strong>1 HP</strong>; this still activates <strong>Revenge</strong>. A character can only have one bondmate this way.",
+    "effect": "Before combat begins, the Avenger chooses an allied <strong>non-Grunt, non-Drone</strong> character; the Avenger and the chosen character are <strong>bondmates</strong>. During the Avenger's turn, as a <strong>protocol</strong> they may move their <strong>Speed</strong> towards their bondmate, or their bondmate may move their <strong>Speed</strong> towards them, as directly as possible. When the Avenger's bondmate is destroyed while within <strong>Range 5</strong> of the Avenger, they instead survive with <strong>1 HP</strong>; this still activates <strong>Revenge</strong>. This effect can only activate once, and a character can only have one bondmate this way.",
     "tags": []
   },
   {
